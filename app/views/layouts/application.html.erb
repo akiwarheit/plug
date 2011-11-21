@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <title>Plug</title>
+			<%= stylesheet_link_tag 'jquery-ui-1.8.16.custom' %>
+			<%= stylesheet_link_tag 'scaffold' %>
+		  <%= javascript_include_tag 'jquery' %>
+			<%= javascript_include_tag 'jquery-ui' %>
+			<%= javascript_include_tag 'application' %>
+		  <%= csrf_meta_tag %>
+	</head>
+	<body>
+		<section id="navigation">
+			<%= link_to "Home", root_path %>
+			<%= link_to "My Notes", "#" %>
+		</section>
+		<p class="notice"><%= notice %></p>
+		<p class="alert"><%= alert %></p>
+		<section id="login"> 
+			<% if !user_signed_in? %>
+				<div id="dialog-form-login" title="Login">
+					<p class="validateTips">All form fields are required.</p>			
+						<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+							<p>
+								<%= f.text_field :email, :id => "email-login" %>
+							</p>
+							<p>
+								<%= f.password_field :password, :id => "password-login" %>
+							</p>
+								<% if devise_mapping.rememberable? -%>
+								  <p><%= f.check_box :remember_me %> <%= f.label :remember_me %></p>
+								<% end -%>
+							<span id="display-none", style="display: none;">
+								<p><%= f.submit "Sign in", :id => "submit-log-in" %></p>
+							</span>
+						<% end %>
+				</div>
+				Welcome to PLUG! 
+				<%= link_to "Login", "#", :id => "login-button" %> or <%= link_to "register", "#", :id => "register-button" %> here.
+			<% else %>
+				Signed in as <%= current_user.email %>. Not you?  
+				<%= link_to "Sign out", destroy_user_session_path %>  
+				<%= link_to "Account Management", edit_user_registration_path %>
+			<% end %>
+		</section> 
+		<%= yield %>
+		<div id="dialog-form-register" title="Create new user">
+			<p class="validateTips">All form fields are required.</p>
+			<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+			
+			  <p><%= f.label :email, :class => "text ui-widget-content ui-corner-all" %><br />
+			  <%= f.text_field :email, :id => "email" %></p>
+			
+			  <p><%= f.label :password, :class => "text ui-widget-content ui-corner-all"%><br />
+			  <%= f.password_field :password, :id => "password" %></p>
+			
+			  <p><%= f.label :password_confirmation, :class => "text ui-widget-content ui-corner-all"%><br />
+			  <%= f.password_field :password_confirmation, :id => "password_confirmation" %></p>
+			
+				<span id="display-none", style="display: none;">
+				  <p><%= f.submit "Sign up", :id => "new-account-submit" %></p>
+			  </span>
+			<% end %>	
+		</div>
+		<section id="footer">
+			<p>Copyright JACK</p>
+		</section>
+	</body>
+</html>
