@@ -47,6 +47,7 @@ $(function() {
 		height: 350,
 		width: 300,
 		modal: true,
+		resizable: false,
 		buttons: {
 			"Create an account": function() {
 				var bValid = true;
@@ -79,6 +80,7 @@ $(function() {
 		height: 270,
 		width: 300,
 		modal: true,
+		resizable: false,
 		buttons: {
 			"Login": function() {
 				var loginValid = true;
