@@ -1,10 +1,10 @@
 class MobileController < ApplicationController
   
   def login
-    @note = Note.find(params[:id])
+    @user = User.where(:email => params[:email])
     
     respond_to do |format|
-      format.json  { render :json => @note }
+      format.json  { render :json => @user }
     end
   end
   
@@ -17,6 +17,9 @@ class MobileController < ApplicationController
   end
   
   def upload_notebook
+    @notebook = Notebook.create(params[:notebook])
+    
+    
   end
   
 end
