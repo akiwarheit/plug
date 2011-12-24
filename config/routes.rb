@@ -1,4 +1,6 @@
 Plug::Application.routes.draw do
+  resources :notebooks
+
   resources :notes
 
   devise_for :users

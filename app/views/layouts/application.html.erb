@@ -4,9 +4,10 @@
 	  <title>Plug</title>
 			<%= stylesheet_link_tag 'jquery-ui-1.8.16.custom' %>
 			<%= stylesheet_link_tag 'font' %>
-		  <%= javascript_include_tag 'jquery-1.6.2.min' %>
-			<%= javascript_include_tag 'jquery-ui-1.8.16.custom.min' %>
+			<%= javascript_include_tag 'jquery' %>
+			<%= javascript_include_tag 'jquery-ui' %>
 			<%= javascript_include_tag 'application' %>
+			<%= javascript_include_tag 'notebook_click.js' %>
 		  <%= csrf_meta_tag %>
 	</head>
 	<body>
@@ -14,8 +15,8 @@
 			<%= link_to "Home", root_path %>
 			<%= link_to "My Notes", "#" %>
 		</section>
-		<p class="notice"><%= notice %></p>
-		<p class="alert"><%= alert %></p>
+		<span class="ui-state-error"><%= notice %></span>
+		<span class="ui-state-error"><%= alert %></span>
 		<section id="login"> 
 			<% if !user_signed_in? %>
 				<div id="dialog-form-login" title="Login">
@@ -63,6 +64,20 @@
 			<% end %>	
 		</div>
 		<section id="footer">
+			<div id="accordion">
+				<div>
+					<h3><a href="#">What is PLUG?</a></h3>
+					<div><p>PLUG is a note-taking application for the Android platform that allows seamless and hassle-free notetaking</p></div>
+				</div>
+				<div>
+					<h3><a href="#">Where can I get PLUG?</a></h3>
+					<div><p>PLUG is currently under development by the talented (and also very lazy) minds of Team JACK. We will release PLUG once it's finished... if ever we finish it</p></div>
+				</div>
+				<div>
+					<h3><a href="#">How can I help?</a></h3>
+					<div><p>Well, you can send us an email at <%= link_to "akiwarheit@gmail.com", "#" %> telling us that you are very interested in our project! That would boost our morale!</p></div>
+				</div>
+			</div>
 			<p>Copyright JACK</p>
 		</section>
 	</body>
