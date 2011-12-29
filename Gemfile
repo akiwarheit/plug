@@ -14,6 +14,7 @@ gem "rmagick", :require => 'RMagick'
 gem 'jquery-rails'
 gem 'faye'
 gem 'eventmachine', '~> 0.12.0'
+# gem 'rack', '1.3.5'
 
 # Use unicorn as the web server
 # gem 'unicorn'

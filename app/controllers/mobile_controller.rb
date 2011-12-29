@@ -1,4 +1,5 @@
 class MobileController < ApplicationController
+  respond_to :json
   
   def login
     @user = User.where(:email => params[:email])
@@ -17,8 +18,12 @@ class MobileController < ApplicationController
   end
   
   def upload_notebook
-    @notebook = Notebook.create(params[:notebook])
+    @user = User.find(params[:user_id])
+    @notebook = @user.notebooks.build(params[:notebook])
+    @new_notebook = Notebook.create(:user_id => @user.id, :description => params[:description])
+    # @notebook = @user.notebooks.build(@prenotebook)
     
+   respond_with(@new_notebook) 
     
   end
   
