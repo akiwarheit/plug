@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111224060338) do
+ActiveRecord::Schema.define(:version => 20111230052129) do
 
   create_table "notebooks", :force => true do |t|
     t.string   "description"
@@ -26,8 +26,10 @@ ActiveRecord::Schema.define(:version => 20111224060338) do
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id",     :null => false
+    t.integer  "user_id",         :null => false
     t.integer  "notebook_id"
+    t.datetime "created_android"
+    t.datetime "updated_android"
   end
 
   create_table "users", :force => true do |t|

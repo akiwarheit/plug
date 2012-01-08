@@ -1,7 +1,7 @@
 Plug::Application.routes.draw do
   resources :notebooks
-
   resources :notes
+  # resources :users
 
   devise_for :users
 

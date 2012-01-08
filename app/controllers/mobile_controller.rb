@@ -2,11 +2,10 @@ class MobileController < ApplicationController
   respond_to :json
   
   def login
-    @user = User.where(:email => params[:email])
+    @user = User.find_by_email(params[:email])
+    # @users = User.all
+    respond_with(@user)
     
-    respond_to do |format|
-      format.json  { render :json => @user }
-    end
   end
   
   def register
