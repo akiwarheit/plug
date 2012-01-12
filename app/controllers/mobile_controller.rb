@@ -28,7 +28,9 @@ class MobileController < ApplicationController
   
   def upload_note
     @user = User.find(params[:user_id])
-    @note = Note.create(:user_id => @user.id, :title => params[:title], :content => params[:content])
+    @note = Note.create(:user_id => @user.id, :title => params[:title], :content => params[:content], :notebook_id => params[:notebook_id])
+    
+    respond_with(@note)
   end
   
 end
