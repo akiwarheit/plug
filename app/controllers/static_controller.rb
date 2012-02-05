@@ -5,6 +5,8 @@ class StaticController < ApplicationController
       @user = current_user
       @notebooks = @user.notebooks
       @notes_hash = @user.notes.group_by(&:notebook_id)
+      
+      @notes = @user.notes.group_by(&:id)
     end
     
     respond_to do |format|

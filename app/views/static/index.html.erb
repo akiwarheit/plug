@@ -3,12 +3,46 @@
 
 <% if user_signed_in? %>
 	<div id="notebooks-list">
-		<% @notebooks.each do |notebook| %>
-			<%= link_to notebook.description, "#", {:class => "notebook-link", :remote => true, :data => notebook.to_json }%>
-		<% end %>
+    <ul>
+			<% @notebooks.each do |notebook| %>
+				<li><%= link_to notebook.description, "#", {:class => "notebook-link", 
+					:remote => true, :data => notebook.id.to_json }%></li>
+			<% end %>
+		</ul>	
 	</div>
-	<div id="notes-list">
-	</div>
+	
+	<% @notes_hash.each_pair do |nh_id, notes| %>
+	  <div class="notes-list" data=<%= nh_id %> style="display:none">
+	    <ul>
+	      <% notes.each do |note| %>
+    			<li><%= link_to note.title, "#", {:class => "note-link", 
+						:remote => true, :data => note.id.to_json }%></li>
+	      <% end %>
+	    </ul>
+	  </div>
+	<% end %>
+
+	<% @notes.each_pair do |id, notes| %>
+	  <div class="notes-edit" data=<%= id %> style="display:none">
+	    <ul>
+	      <% notes.each do |note| %>
+	  			<li><%= note.title %></li>
+	  			<li><%= note.content %></li>
+	      <% end %>
+	    </ul>
+    </div>
+	<% end %>
+	
 <% end %>
 
+<script type="text/javascript">
 
+	$(".notebook-link").click(function() {
+    $(".notes-list").hide().filter("[data=\"" + $(this).attr("data") + "\"]").show();
+    $(".notes-edit").hide();
+  });
+  
+	$(".note-link").click(function() {
+    $(".notes-edit").hide().filter("[data=\"" + $(this).attr("data") + "\"]").show();
+  });
+</script>

@@ -105,7 +105,14 @@ $(function() {
 		close: function() {
 			allFields.val( "" ).removeClass( "ui-state-error" );
 		}
-	});
+	})
+	
+	// .keyup(function(e) { 
+		// if(e.keyCode == 13) {
+			// $("#submit-log-in").click();
+		// }
+	// });
+	
 	
 	$( "#register-button" ).click(function() {
 			$( "#dialog-form-register" ).dialog( "open" );

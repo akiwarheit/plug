@@ -1,8 +1,5 @@
-$(function() {
-	
-	$(".notebook-link").click(function() {
-		var id = this.getAttribute("data");
-		$("#notes-list").html(id);
-	});
-	
-});
+// $(function() {
+	// $(".notebook-link").click(function() {
+		// alert("beau bayot");
+	// });
+// });

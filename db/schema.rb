@@ -10,15 +10,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111230052129) do
+ActiveRecord::Schema.define(:version => 20120205035917) do
 
   create_table "notebooks", :force => true do |t|
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id",         :null => false
+    t.integer  "user_id",            :null => false
     t.datetime "created_android"
     t.datetime "updated_android"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "notes", :force => true do |t|
@@ -26,10 +30,14 @@ ActiveRecord::Schema.define(:version => 20111230052129) do
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id",         :null => false
+    t.integer  "user_id",            :null => false
     t.integer  "notebook_id"
     t.datetime "created_android"
     t.datetime "updated_android"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "users", :force => true do |t|

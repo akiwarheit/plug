@@ -9,12 +9,12 @@ gem 'mysql2'
 gem 'omniauth'
 gem 'devise', '1.1.3'
 gem 'heroku'
-gem 'paperclip', '~> 2.3'
 gem "rmagick", :require => 'RMagick'
 gem 'jquery-rails'
 gem 'faye'
 gem 'eventmachine', '~> 0.12.0'
 # gem 'rack', '1.3.5'
+gem 'paperclip', :git => 'http://github.com/thoughtbot/paperclip.git'
 
 # Use unicorn as the web server
 # gem 'unicorn'
