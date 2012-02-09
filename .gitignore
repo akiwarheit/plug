@@ -17,3 +17,4 @@ coverage/*
 db/*.sqlite3
 *.tmproj
 *.sw?
+RAILS_ENV=production/*
