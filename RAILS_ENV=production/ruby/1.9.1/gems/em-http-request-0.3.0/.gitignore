@@ -1,0 +1,5 @@
+*.bundle
+*.o
+Makefile
+mkmf.log
+Gemfile.lock

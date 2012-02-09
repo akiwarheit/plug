@@ -14,5 +14,9 @@ class StaticController < ApplicationController
       format.js
     end
   end
+  
+  def about
+    
+  end
 
 end

@@ -2,83 +2,201 @@
 <html>
 	<head>
 	  <title>Plug</title>
+	  	<%= stylesheet_link_tag 'style' %>
 			<%= stylesheet_link_tag 'jquery-ui-1.8.16.custom' %>
 			<%= stylesheet_link_tag 'font' %>
+			<%= stylesheet_link_tag 'mystyle' %>
 			<%= javascript_include_tag 'jquery' %>
 			<%= javascript_include_tag 'jquery-ui' %>
 			<%= javascript_include_tag 'application' %>
 			<%= javascript_include_tag 'notebook_click.js' %>
+			<%= javascript_include_tag 'swfobject' %>
 		  <%= csrf_meta_tag %>
 	</head>
 	<body>
-		<section id="navigation">
-			<%= link_to "Home", root_path %>
-			<%= link_to "My Notes", "#" %>
-		</section>
-		<span class="ui-state-error"><%= notice %></span>
-		<span class="ui-state-error"><%= alert %></span>
-		<section id="login"> 
-			<% if !user_signed_in? %>
-				<div id="dialog-form-login" title="Login">
-					<p class="validateTips">All form fields are required.</p>			
-						<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-							<p>
-								<%= f.text_field :email, :id => "email-login" %>
-							</p>
-							<p>
-								<%= f.password_field :password, :id => "password-login" %>
-							</p>
-								<% if devise_mapping.rememberable? -%>
-								  <p><%= f.check_box :remember_me %> <%= f.label :remember_me %></p>
-								<% end -%>
-							<span id="display-none", style="display: none;">
-								<p><%= f.submit "Sign in", :id => "submit-log-in" %></p>
-							</span>
+		<div id=parent-container>
+	<!-- 		<section id="navigation">
+				<%= link_to "Home", root_path %>
+			</section> 
+			<span class="ui-state-error"><%= notice %></span>
+			<span class="ui-state-error"><%= alert %></span> -->
+			<div id="header">
+				<div class="content">
+					<div id="login"> 
+						<% if !user_signed_in? %>
+							<div id="dialog-form-login" title="Login">
+								<p class="validateTips">All form fields are required.</p>			
+									<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+										<p>
+											<%= f.text_field :email, :id => "email-login" %>
+										</p>
+										<p>
+											<%= f.password_field :password, :id => "password-login" %>
+										</p>
+											<% if devise_mapping.rememberable? -%>
+											  <p><%= f.check_box :remember_me %> <%= f.label :remember_me %></p>
+											<% end -%>
+										<span id="display-none", style="display: none;">
+											<p><%= f.submit "Sign in", :id => "submit-log-in" %></p>
+										</span>
+									<% end %>
+							</div>
+							<%= link_to "Login", "#", :id => "login-button" %> or <%= link_to "register", "#", :id => "register-button" %> here.
+						<% else %>
+							Signed in as <%= current_user.email %>. Not you?  
+							<%= link_to "Sign out", destroy_user_session_path %>  
+							<%= link_to "Account Management", "#", :id => "account-manage-link"%>
 						<% end %>
+					</div> 
 				</div>
-				Welcome to PLUG! 
-				<%= link_to "Login", "#", :id => "login-button" %> or <%= link_to "register", "#", :id => "register-button" %> here.
-			<% else %>
-				Signed in as <%= current_user.email %>. Not you?  
-				<%= link_to "Sign out", destroy_user_session_path %>  
-				<%= link_to "Account Management", edit_user_registration_path %>
-			<% end %>
-		</section> 
-		<%= yield %>
-		<div id="dialog-form-register" title="Create new user">
-			<p class="validateTips">All form fields are required.</p>
-			<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-			
-			  <p><%= f.label :email, :class => "text ui-widget-content ui-corner-all" %><br />
-			  <%= f.text_field :email, :id => "email" %></p>
-			
-			  <p><%= f.label :password, :class => "text ui-widget-content ui-corner-all"%><br />
-			  <%= f.password_field :password, :id => "password" %></p>
-			
-			  <p><%= f.label :password_confirmation, :class => "text ui-widget-content ui-corner-all"%><br />
-			  <%= f.password_field :password_confirmation, :id => "password_confirmation" %></p>
-			
-				<span id="display-none", style="display: none;">
-				  <p><%= f.submit "Sign up", :id => "new-account-submit" %></p>
-			  </span>
-			<% end %>	
-		</div>
-		<section id="footer">
-			<div id="accordion">
-				<div>
-					<h3><a href="#">What is PLUG?</a></h3>
-					<div><p>PLUG is a note-taking application for the Android platform that allows seamless and hassle-free notetaking</p></div>
-				</div>
-				<div>
-					<h3><a href="#">Where can I get PLUG?</a></h3>
-					<div><p>PLUG is currently under development by the talented (and also very lazy) minds of Team JACK. We will release PLUG once it's finished.</p></div>
-				</div>
-				<div>
-					<h3><a href="#">How can I help?</a></h3>
-					<div><p>Well, you can send us an email at <%= link_to "akiwarheit@gmail.com", "#" %> telling us that you are very interested in our project! That would boost our morale!</p></div>
-				</div>
+				<%= image_tag "plug_word.png", :width => "250px"%>
 			</div>
-			<p>Copyright JACK</p>
-		</section>
+			<%= yield %>
+
+			<div id="dialog-form-register" title="Create new user">
+				<p class="validateTips">All form fields are required.</p>
+				<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+				
+				  <p><%= f.label :email, :class => "text ui-widget-content ui-corner-all" %><br />
+				  <%= f.text_field :email, :id => "email" %></p>
+				
+				  <p><%= f.label :password, :class => "text ui-widget-content ui-corner-all"%><br />
+				  <%= f.password_field :password, :id => "password" %></p>
+				
+				  <p><%= f.label :password_confirmation, :class => "text ui-widget-content ui-corner-all"%><br />
+				  <%= f.password_field :password_confirmation, :id => "password_confirmation" %></p>
+				
+					<span id="display-none", style="display: none;">
+					  <p><%= f.submit "Sign up", :id => "new-account-submit" %></p>
+				  </span>
+				<% end %>	
+			</div>
+			
+			<div id="dialog-form-manage" title="Manage User Account">
+				<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+				
+				  <p><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+				  <%= f.password_field :password %></p>
+				
+				  <p><%= f.label :password_confirmation %><br />
+				  <%= f.password_field :password_confirmation %></p>
+				
+				  <p><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+				  <%= f.password_field :current_password %></p>
+				  
+					<span id="display-none", style="display: none;">		
+					  <p><%= f.submit "Update", :id => "account-edit-submit" %></p>
+				  </span>
+				<% end %>
+			</div>	
+			
+			<% if !user_signed_in? %>	
+				
+	<!-- 				<embed
+					   src="../keboi.swf" 
+					   width="300"
+					   height="300"
+					   allowscriptaccess="always"
+					   allowfullscreen="true"
+					   id="player1"
+					   name="player1"
+					   flashvars="file=playlist.xml&dock=true"
+					/> -->
+					
+<!-- 					<div id="faq-intro-flash-movie">
+						<%= swf_tag "keboi" %>
+					</div> -->
+					
+
+					
+				<div id="faq">
+ 					
+ 					<center>
+						<div id="faq-navigation">
+							<%= link_to "What is PLUG?", "#", :id => "faq-what-link"%>
+							<%= link_to "Where can I get PLUG?", "#", :id => "faq-where-link"%>
+							<%= link_to "How can I help?", "#", :id => "faq-how-link"%>
+						</div>
+					</center>
+					
+					<script type="text/javascript">
+					
+						$(document).ready(function() {
+					    $("#faq-how-div").hide();
+					    $("#faq-where-div").hide();
+					    $("#faq-what-div").hide();
+						});
+					
+						$("#faq-what-link").click(function() {
+					    $("#faq-how-div").hide();
+					    $("#faq-where-div").hide();
+					    $("#faq-what-div").show();
+					  });
+					  
+						$("#faq-where-link").click(function() {
+					    $("#faq-how-div").hide();
+					    $("#faq-where-div").show();
+					    $("#faq-what-div").hide();
+					  });
+					  
+						$("#faq-how-link").click(function() {
+					    $("#faq-how-div").show();
+					    $("#faq-where-div").hide();
+					    
+					    $("#faq-what-div").hide();
+					  });				  
+					  
+					</script>
+					
+					
+					<div id = "faq-what-div">
+					<div class="faq-sub">
+						<div class="faq-mascot">
+							<%= image_tag "plugnotes-logo-vr1-2.png", :width => "125px", :height => "150px" %>
+						</div>
+						<div class="faq-context">
+							<h3>What is PLUG?</h3>
+							<p>PLUG is a note-taking application for the Android platform that allows seamless and hassle-free notetaking</p>
+						</div>
+					</div>
+					</div>
+					
+					<div id = "faq-where-div">					
+					<div class="faq-sub">
+						<div class="faq-mascot">
+							<%= image_tag "plugnotes-logo-hold-phone-4.png", :width => "125px", :height => "200px" %>
+						</div>
+						<div class="faq-context">
+							<h3>Where can I get PLUG?</h3>
+							<div><p>PLUG is currently under development by the talented (and also very lazy) minds of Team JACK. We will release PLUG once it's finished.</p></div>
+						</div>
+					</div>
+					</div>				
+					
+					<div id = "faq-how-div">
+					<div class="faq-sub">
+						<div class="faq-mascot">
+							<%= image_tag "plugnotes-logo-help-2.png", :width => "200px", :height => "160px" %>
+						</div>
+						<div class="faq-context">
+							<h3>How can I help?</h3>
+							<div><p>Well, you can send us an email at <%= link_to "akiwarheit@gmail.com", "#" %> telling us that you are very interested in our project! That would boost our morale!</p></div>
+						</div>
+					</div>
+					</div>	
+					
+					
+				</div>
+			<% end %>
+			<div id="footer">
+				
+				<div id="download-apk">
+					<%= link_to image_tag("download.png", :height => "40px", :width => "200px"), "/ocr-notes.apk" %>
+				</div>
+				
+				<p>Copyright © 2012 PLUG Notes by <%= link_to "JACK", "/the-team" %> All Rights Reserved.</p>
+	  	</div> <!-- end footer -->
+	  	
+  	</div>
 	</body>
 </html>

@@ -7,7 +7,9 @@ Plug::Application.routes.draw do
 
   root :to => "static#index"
   get "static/index"
-
+  
+  match "/the-team" => "static#about"
+  
   devise_for :users, :controllers => {:registrations => "registrations"}
 
   # The priority is based upon order of creation:

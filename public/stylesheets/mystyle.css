@@ -1,0 +1,243 @@
+﻿html {
+height:100%; 
+max-height:100%; 
+padding:0; 
+margin:0; 
+border:0; 
+background:#fff url('../../images/bg_white.png'); 
+font-size:76%; 
+font-family:"trebuchet MS", verdana, arial, sans-serif;
+overflow: hidden; 
+}
+
+body {
+	font-size: 76%;
+	font-family: "trebuchet MS", verdana, arial, sans-serif;
+	background:#ffffff url('../../images/bg_white.png');
+	word-wrap: break-word;
+	height:100%; 
+	max-height:100%; 
+	overflow:hidden; 
+	padding:0; 
+	margin:0; 
+	border:0;
+	background:#FFFFFF;
+
+}
+#header {
+	position:absolute; 
+	margin-bottom:20px; top:0; left:0; 
+	display:block; 
+	width:100%; 
+	height:20%; 
+	font-size: 12px; z-index:5; color:black;
+	
+}
+#nav{
+	float:right;
+	margin-top:25px;
+	text-align:right;
+	position:relative;
+	margin-right:0px;
+	margin-left:700px;
+	
+}
+#nav ul{
+	list-style-type:none;
+	margin:0;
+	padding:0;
+}
+#nav li{
+	width:75px;
+	top:50px;bottom:20px;
+	left:20px;right:20px;
+	padding:25px;
+	display:inline;
+	text-align:center;
+}
+
+#login{
+	height:30px;
+	margin:0;padding:0;
+	position:relative;
+	background:#336600;
+	text-align:right;
+}
+/*notebooks == list of notebooks that a user have*/
+#notebooks{
+	position:absolute; 
+	left:0; 
+	top:100px; 
+	bottom:50px; 
+	width:30%; 
+	height:auto;
+	font-size:1em; 
+	z-index:4; 
+	overflow:auto;
+}
+#notebooks ul{
+	list-style:none;
+	margin:0;
+	padding:10px;
+}
+#notebooks li{
+	margin-bottom:5px;
+	line-height:1px;
+}
+#notebooks li a:link, #notebooks li a:visited{
+	width:200px;
+	text-align:left;
+	font-size:90%;
+	display:block;
+	padding:0.4em 0 0.4em 0.5em;
+	color:#141414;
+	font-weight:bold;
+	text-decoration:none;
+	
+}
+#notebooks li a:hover{
+	background-color:#F4F4F4;/*sgigrey96*/
+	color:#B8860B;/*darkgoldenrod*/
+	background: url('../images/arrow.png') no-repeat top;
+	width:250px;
+	
+}
+/*notes == menu of notes within the notebook*/
+#notes{
+	position:absolute; 
+	left:0; 
+	top:100px; 
+	bottom:50px; 
+	width:30%; 
+	font-size:1em; 
+	z-index:4; 
+	overflow:auto;
+}
+#notes ul{
+	list-style:none;
+	margin:0;
+	padding:10px;
+	
+}
+#notes li{
+	margin-bottom:5px;
+	line-height:1px;
+	
+	
+}
+#notes li a:link, #notes li a:visited{
+	width:200px;
+	text-align:left;
+	font-size:90%;
+	display:block;
+	padding:0.4em 0 0.4em 0.5em;
+	color:#141414;
+	font-weight:bold;
+	text-decoration:none;
+	
+}
+#notes li a:hover{
+  background-color:#F4F4F4;/*sgigrey96*/
+	color:#B8860B;/*darkgoldenrod*/
+	background: url('../images/arrow.png') no-repeat top;
+	width:250px;
+}
+/*notes-display == the actual note*/
+#notes-display{
+background:url('images/pad.png');
+position:absolute; left:0; top:100px; bottom:50px; 
+width:60%; font-size:1em; z-index:4; overflow:auto;}
+
+* html #notebooks, * html #notes, * html #notes-display, * html #left4 {height:100%; top:0; bottom:0; border-top:100px solid #fff; border-bottom:50px solid #fff;}
+#notebooks {left:0; background:#ffffff;}
+#notes {left:20%; background: #ffffff;}
+#notes-display {left:40%; background: #ffffff;}
+
+.notes-edit {
+	background: url('../images/pad.png');
+	padding: 20px;
+	padding-left: 80px;
+	margin-right: 10px;
+	margin-left: 0;
+	float: left;
+	width: 500px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.note-display-dialog li{
+	text-decoration:none;
+	list-style: none;
+}
+.note-display-dialog h3{
+	color:#336600;
+	font-size: 30px;
+}
+.note-display-dialog p{
+	text-indent:5px;
+}
+.no-list-style {
+	list-style: none;
+	/*margin:0;*/
+	padding: 0;
+}
+.no-display {
+	display: none;
+}
+
+#faq-intro-flash-movie {
+	float: left;
+	height: 400px;
+	width: 400px;
+}
+#faq {
+/*	width: 800px;
+	height:auto;
+	margin-top:50px;
+	padding-top: 60px;
+	overflow:auto;*/
+	position:absolute; left:0; top:100px; bottom:50px; 
+	width:80%; font-size:1em; z-index:4; 
+/*	overflow:auto;*/
+	left:100px;
+	margin-bottom:100px;
+}
+
+.faq-mascot {
+	float:left;
+	height: 200px;
+	width: 200px;
+	margin: 0px 0px 0px 0px;
+	padding: 10px;
+}
+.faq-context {
+	height: 150px;
+	width: 100%;
+	margin-top:10px;
+	margin-left: 70px;
+}
+
+#footer {
+	position:absolute; 
+	margin:0; bottom:0; left:0; 
+	display:block; width:100%; 
+	height:60px; background:#336600; 
+	font-size:0.8em; z-index:5;
+	color:#ffffff;
+	text-align:right;  
+	padding-right:10px;	
+}
+#download-apk{
+	float:left;font-size:20px;
+	padding-top:5px;
+	padding-left:10px;
+}
+
+#faq-navigation {
+	padding: 10px;
+	margin-top: 30px;
+}
+
+#faq-navigation a:link, a:hover {
+	font-size: 150%;
+	padding: 10px;
+}
