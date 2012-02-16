@@ -2,9 +2,23 @@ class MobileController < ApplicationController
   respond_to :json
   
   def login
-    @user = User.find_by_email(params[:email])
+    
+    # resource = User.find_for_database_authentication(:login=>params[:user_login][:login])
+    # resource.valid_password?(params[:user_login][:password])
+    
     # @users = User.all
-    respond_with(@user)
+    
+    @user = User.find_by_email(params[:email])
+    
+    if @user != nil
+     if @user.valid_password?(params[:password])
+      respond_with(@user)
+      else
+        respond_with(nil)
+      end     
+    else
+      respond_with(nil)
+    end
     
   end
   

@@ -1,4 +1,5 @@
 <% if user_signed_in? %>
+	<div id="left-content">
 	<div id="notebooks">
 					<div class="inner">
 						<%= image_tag "notebooks.png", :height => "30px", :width => "150px"%>
@@ -10,7 +11,9 @@
 		</ul>	
 		</div>
 	</div>
+	</div>
 	
+	<div id="right-content">
 	<div id="notes">
 					<div class="inner">
 						<%= image_tag "notes.png", :height => "30px", :width => "100px"%>
@@ -26,9 +29,10 @@
 		<% end %>
 		</div>
 	</div>
+	</div>
 	
-	<div id="notes-display">
-			<div class="inner">
+<!-- 	<div id="notes-display">
+			<div class="inner"> -->
 <!-- 				<%= image_tag "notes_content.png", :height => "30px", :width => "200px"%> -->
 			<% @notes.each_pair do |id, notes| %>
 			  <div class="notes-edit" data=<%= id %>>
@@ -42,8 +46,8 @@
 			    </ul>
 		    </div>
 			<% end %>
-    </div>
-	</div>
+<!--     </div>
+	</div> -->
 <% end %>
 
 <script type="text/javascript">
