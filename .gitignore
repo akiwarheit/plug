@@ -19,3 +19,5 @@ db/*.sqlite3
 *.sw?
 RAILS_ENV=production/*
 .bundle/*
+vendor/bundle/*
+vendor/*
