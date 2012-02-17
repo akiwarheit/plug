@@ -1,10 +1,43 @@
-<div id="about">
-	<div id="group-photo"><%= image_tag "itlogdakogbayot.jpg" %></div>
+
+
+	<!-- 	<div id="group-photo"><%= image_tag "itlogdakogbayot.jpg" %></div> -->
+<!-- 	<div id="example">
+					<%= image_tag "plug-ribbon.png" , :width=>"112" , :height=>"112" , :alt=>"New Ribbon" , :id=>"ribbon"%>
+					<%= image_tag "example-frame.png" , :width=>"800" , :height=>"500" , :alt=>"Example Frame" , :id=>"frame" , :style=>"padding-top:10px;" %> 
+					<a href="http://192.168.0.108/ocr-notes.apk" title="Download PLUG APK"><%= image_tag "download.png" , :width=>"150" , :height=>"150" , :alt=>"Download Ribbon" , :id=>"download" %></a> -->				
+<div id="slides">
+	<div class="slides_container" style="top:-40px;">
+		<%= image_tag "itlogdakogbayot.jpg", :width=>"570", :height=>"400" , :alt=>"The Advocate of Laziness"%> 
+		<%= image_tag "itlogdakogbayot3.jpg" , :width=>"570", :height=>"400" , :alt=>"Picture2x with Dean Gregg Gabison"%>
+		<%= image_tag "itlogdakogbayot2.jpg" , :width=>"570", :height=>"400"  , :alt=>"Wohoa!!!McDo with Sir Herbert Boloyos"%>
+	</div>
+	<a href="#" class="prev"><%= image_tag "arrow-prev.png" , :width=>"24" , :height=>"43" , :alt=>"Arrow Prev"%></a>
+	<a href="#" class="next"><%= image_tag "arrow-next.png" , :width=>"24" , :height=>"43" , :alt=>"Arrow Next"%></a>
 </div>
+				
+<!-- 					</div> -->
+<center>
+<div id="footer" style="left:135px; width:100%;">
+						<p>
+							Charchar
+						</p>
+						<p>
+							All charchar
+						</p>
+					</div>
+	</center>
+				
+
+
 
 <script type="text/javascript">
-	$(document).ready(function() {
-		$("#header").hide();
-		$("#faq").hide();
+	$(function() {
+		$('#slides').slides({
+			preload : true,
+			preloadImage : 'loading.gif',
+			play : 5000,
+			pause : 1500,
+			hoverPause : true
+		});
 	});
-</script>
+

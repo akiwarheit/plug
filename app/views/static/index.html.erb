@@ -1,57 +1,61 @@
-<% if user_signed_in? %>
-	<div id="left-content">
-	<div id="notebooks">
-					<div class="inner">
-						<%= image_tag "notebooks.png", :height => "30px", :width => "150px"%>
-	  <ul>
+<div id="container">
+<% if user_signed_in? %> 
+<%= image_tag "notebooks.png", :height=>"30px", :width=>"150px", :alt=>"Notebooks", :id=>"img-notebooks" %>
+<%= image_tag "notes.png", :height=>"30px", :width=>"100px", :alt=>"Notes", :id=>"img-notes" %>
+<div id="notebooks">
+	<div class="inner">
+		<ul>
 			<% @notebooks.each do |notebook| %>
-				<li><%= link_to notebook.description, "#", {:class => "notebook-link", 
-					:remote => true, :data => notebook.id.to_json }%></li>
+			<li>
+				<%= link_to notebook.description, "#", {:class => "notebook-link",
+				:remote => true, :data => notebook.id.to_json }%>
+			</li>
 			<% end %>
-		</ul>	
-		</div>
+		</ul>
 	</div>
-	</div>
-	
-	<div id="right-content">
-	<div id="notes">
-					<div class="inner">
-						<%= image_tag "notes.png", :height => "30px", :width => "100px"%>
+</div>
+</div>
+<div id="notes">
+	<div class="inner">
 		<% @notes_hash.each_pair do |nh_id, notes| %>
-		  <div class="notes-list" data=<%= nh_id %>>
-		    <ul>
-		      <% notes.each do |note| %>
-	    			<li><%= link_to note.title, "#", {:class => "note-link", 
-							:remote => true, :data => note.id.to_json }%></li>
-		      <% end %>
-		    </ul>
-		  </div>
-		<% end %>
+		<div class="notes-list" data=<%= nh_id %>>
+			<ul>
+				<% notes.each do |note| %>
+				<li>
+					<%= link_to note.title, "#", {:class => "note-link",
+					:remote => true, :data => note.id.to_json }%>
+				</li>
+				<% end %>
+			</ul>
 		</div>
+		<% end %>
 	</div>
-	</div>
-	
-<!-- 	<div id="notes-display">
-			<div class="inner"> -->
+</div>
+</div> <!-- 	<div id="notes-display">
+<div class="inner"> -->
 <!-- 				<%= image_tag "notes_content.png", :height => "30px", :width => "200px"%> -->
-			<% @notes.each_pair do |id, notes| %>
-			  <div class="notes-edit" data=<%= id %>>
-			     <ul class="no-list-style">
-			      <% notes.each do |note| %>
-			      	<div class="note-display-dialog" title="Notes Content" data=<%= note.id %>>
-				  			<li><h3><%= note.title %></h3></li>
-				  			<li><p><%= note.content %></p></li>
-			  			</div>
-			      <% end %>
-			    </ul>
-		    </div>
-			<% end %>
-<!--     </div>
-	</div> -->
+<% @notes.each_pair do |id, notes| %>
+<div class="notes-edit" data=<%= id %>>
+	<ul class="no-list-style">
+		<% notes.each do |note| %>
+		<div class="note-display-dialog" title="Notes Content" data=<%= note.id %>>
+			<li>
+				<h3><%= note.title %></h3>
+			</li>
+			<li>
+				<p>
+					<%= note.content %>
+				</p>
+			</li>
+		</div>
+		<% end %>
+	</ul>
+</div>
+				
+<% end %> <!--     </div>
+</div> -->
 <% end %>
-
 <script type="text/javascript">
-
 	// function() {
 
 	// };
@@ -60,18 +64,18 @@
 		$(".note-display-dialog").dialog("destroy");
 		$(".notes-list").hide();
 	});
-	
+
 	$(".notebook-link").click(function() {
-    $(".notes-list").hide().filter("[data=\"" + $(this).attr("data") + "\"]").show();
-    $(".notes-edit").hide();
-  });
-  
+		$(".notes-list").hide().filter("[data=\"" + $(this).attr("data") + "\"]").show();
+		$(".notes-edit").hide();
+	});
+
 	$(".note-link").click(function() {
-    // $(".notes-edit").hide().filter("[data=\"" + $(this).attr("data") + "\"]").show();
-  	$(".note-display-dialog").filter("[data=\"" + $(this).attr("data") + "\"]").dialog( {
-			modal: true
+		// $(".notes-edit").hide().filter("[data=\"" + $(this).attr("data") + "\"]").show();
+		$(".note-display-dialog").filter("[data=\"" + $(this).attr("data") + "\"]").dialog({
+			modal : true
 		});
-    // $(".note-display-dialog").dialog("close").filter("[data=\"" + $(this).attr("data") + "\"]").dialog("open");
-  });
-  
+		// $(".note-display-dialog").dialog("close").filter("[data=\"" + $(this).attr("data") + "\"]").dialog("open");
+	});
+
 </script>

@@ -1,0 +1,231 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+/*^'^ Navigation Structure ^'^*/
+.nav-container-outer{
+background: #990000;
+padding: 0px;
+height: 74px;
+background: url('../images/nav-bg.png');
+}
+.float-left{
+float: left;
+}
+.float-right{
+float: right;
+}
+.nav-container .divider{
+display:block;
+font-size:1px;
+border-width:0px;
+border-style:solid;
+}
+.nav-container .divider-vert{
+float:left;
+width:0px;
+display: none;
+}
+.nav-container .item-secondary-title{
+display:block;
+cursor:default;
+white-space:nowrap;
+}
+.clear{
+font-size:1px;
+height:0px;
+width:0px;
+clear:left;
+line-height:0px;
+display:block;
+float:none;
+}
+.nav-container{
+position:relative;
+zoom:1;
+margin: 0 auto;
+}
+.nav-container a, .nav-container li{
+float:left;
+display:block;
+white-space:nowrap;
+}
+.nav-container div a, .nav-container ul a, .nav-container ul li{
+float:none;
+}
+.nav-container ul{
+left:-10000px;
+position:absolute;
+}
+.nav-container, .nav-container ul{
+list-style:none;
+padding:0px;
+margin:0px;
+}
+.nav-container li a{
+float:none
+}
+.nav-container li{
+position:relative;
+}
+.nav-container ul{
+z-index:10;
+}
+.nav-container ul ul{
+z-index:20;
+}
+.nav-container ul ul ul{
+z-index:30;
+}
+.nav-container ul ul ul ul{
+z-index:40;
+}
+.nav-container ul ul ul ul ul{
+z-index:50;
+}
+li:hover>ul{
+left:auto;
+}
+#nav-container ul {
+top:100%;
+}
+#nav-container ul li:hover>ul{
+top:0px;
+left:100%;
+}
+
+/*^'^ Primary Items ^'^*/	
+#nav-container a{	
+padding:7px 17px 7px 18px;
+margin: 0px 0px 0px 0px;
+color: #FFFFFF;
+font-family: Verdana, Trebuchet MS, Arial, sans-serif, Helvetica;
+font-size:14px;
+text-decoration:none;
+font-weight: bold;
+background-repeat: no-repeat;
+background-position: top;
+}
+
+#nav-container a:hover{
+color: #336600;/*hover color menu*/
+background: url('../images/item-primary-bg.jpg');
+background-repeat: no-repeat;
+background-position: center;
+}
+
+/*^'^ Secondary Items Container ^'^*/	
+#nav-container div, #nav-container ul{	
+padding:10px 4px 10px 4px;
+margin:0px 0px 0px 0px;
+background: #4e7e1f url('../images/item-secondary-container-bg.png');
+background-repeat: repeat-x;
+
+border-bottom: 1px solid #336600;
+}
+
+/*^'^ Secondary Items ^'^*/	
+#nav-container div a, #nav-container ul a{	
+padding:3px 10px 3px 6px;
+background-color: #FFFFFF;
+background: url('../images/item-secondary-bg.png');
+background-repeat: no-repeat;
+background-position: 0px 22px;
+font-size:11px;
+border-width:0px;
+border-style:none;
+margin: 0px 0px 0px 0px;
+width: 149px;
+}
+
+/*^'^ Secondary Items Hover State ^'^*/	
+#nav-container div a:hover, #nav-container ul a:hover{	
+background-color: #FFFFFF;
+background: url('../images/item-secondary-bg.png');
+background-repeat: no-repeat;
+color:#c8f906;/*hover color sub menu*/
+}
+
+/*^'^ Secondary Item Titles ^'^*/	
+#nav-container .item-secondary-title{	
+cursor:default;
+padding:4px 0px 3px 7px;
+color: #6C3600;
+font-family: Arial, Trebuchet MS, Arial, sans-serif, Helvetica;
+font-size:11px;
+background: url(images/item-secondary-title-bg.png); 
+background-repeat: no-repeat;
+font-weight:bold;
+}
+
+/*^'^ Horizontal Dividers ^'^*/	
+#nav-container .divider-horiz{	
+border-top-width:1px;
+margin:5px 5px;
+border-color: #336600;
+}
+
+/*^'^ Vertical Dividers ^'^*/	
+#nav-container .divider-vert{	
+border-left-width:1px;
+height:15px;
+margin:4px 2px 0px 2px;
+border-color:#336600;
+}
+
+.notes-edit {
+	padding: 20px;
+	padding-left: 80px;
+	margin-right: 10px;
+	margin-left: 0;
+	float: left;
+	width: 500px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.note-display-dialog li{
+	text-decoration:none;
+	list-style: none;
+}
+.note-display-dialog h3{
+	color:#336600;
+	font-size: 30px;
+}
+.note-display-dialog p{
+	text-indent:5px;
+}
+.no-list-style {
+	list-style: none;
+	/*margin:0;*/
+	padding: 0;
+}.notes-edit {
+	padding: 20px;
+	padding-left: 80px;
+	margin-right: 10px;
+	margin-left: 0;
+	float: left;
+	width: 500px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.note-display-dialog li{
+	text-decoration:none;
+	list-style: none;
+}
+.note-display-dialog h3{
+	color:#336600;
+	font-size: 30px;
+}
+.note-display-dialog p{
+	text-indent:5px;
+}
+.no-list-style {
+	list-style: none;
+	/*margin:0;*/
+	padding: 0;
+}
+.no-display {
+	display: none;
+}
+.no-display {
+	display: none;
+}
