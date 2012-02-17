@@ -112,9 +112,13 @@
 				</p>
 				<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
 				<p>
+					<%= f.label :email, :class => "text ui-widget-content ui-corner-all" %>
+					<br />
 					<%= f.text_field :email, :id => "email-login" %>
 				</p>
 				<p>
+					<%= f.label :password, :class => "text ui-widget-content ui-corner-all" %>
+					<br />
 					<%= f.password_field :password, :id => "password-login" %>
 				</p>
 				<% if devise_mapping.rememberable? -%>
